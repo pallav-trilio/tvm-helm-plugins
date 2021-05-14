@@ -22,7 +22,7 @@ then
     exit 1
 fi
 
-url="https://github.com/pallav-trilio/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_linux_amd64.tar.gz"
+url="https://github.com/pallav-trilio/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_linux_amd64.tar.gz?raw=true"
 
 filename=`echo ${url} | sed -e "s/^.*\///g"`
 
