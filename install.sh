@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$HELM_PLUGIN_DIR" || exit
-version="$(grep  "version" plugin.yaml | cut -d '\"' -f 2)"
+version="$(grep  "version" plugin.yaml | cut -d '"' -f 2)"
 echo "Installing tvm-upgrade ${version} ..."
 # Find correct archive name
 unameOut="$(uname -s)"
@@ -24,15 +24,16 @@ then
     exit 1
 fi
 echo "OS/Arch : ${os}/$(arch)"
-url="https://github.com/trilioData/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_${os}_${arch}.tar.gz?raw=true"
-filename=$(echo "${url}" | sed -e "s/^.*\///g")
+url="https://github.com/pallav-trilio/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_${os}_${arch}.tar.gz?raw=true"
+filename=$(echo "${url}" | sed -e "s/^.*\///g" | awk -F "?" '{print $1}')
+echo "Filename : ${filename} "
   # Download archive
   if [[ -n "$(command -v curl)" ]]
   then
-      curl -sSL -O "$url"
+      curl -sSL -o "$filename" "$url" 
   elif [[ -n "$(command -v wget)" ]]
   then
-      wget -q "$url"
+      wget -q -O "$filename" "$url" 
   else
       echo "Need curl or wget"
       exit 1
