@@ -1,0 +1,5 @@
+0c52577088faadd1e1511178e69adcfe4b5fee931fad23d758107f623e5de401  tvm-upgrade_v0.0.0_linux_386.tar.gz
+16b73f8fb84ec19a37180008e2719b60d6531899d92e465ed91db890a68f985b  tvm-upgrade_v0.0.0_linux_amd64.tar.gz
+29026fd6d3725592e0e6b184ecfff20f2aa4b156b652669fff742efa47ae35bf  tvm-upgrade_v0.0.0_windows_amd64.tar.gz
+a5bd7694c6db3cf74f245c5d6dfdf0490eb94616e2692ef2d3ed501247861e8e  tvm-upgrade_v0.0.0_windows_386.tar.gz
+cb208dc30ebf522e66b8c509c70a5eae09d0aa497b8082cb87bbe926a8cb39ff  tvm-upgrade_v0.0.0_darwin_amd64.tar.gz

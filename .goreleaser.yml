@@ -19,9 +19,6 @@ archives:
       tvm-upgrade_{{ .Tag }}_{{ .Os }}_{{ .Arch -}}
     builds:
       - tvm-upgrade
-    format_overrides:
-      - goos: windows
-        format: zip
     files: ["LICENSE.md"]
 
 checksum:

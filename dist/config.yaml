@@ -1,13 +1,13 @@
 project_name: tvm-helm-plugins
 release:
   github:
-    owner: trilioData
+    owner: pallav-trilio
     name: tvm-helm-plugins
   prerelease: "true"
   name_template: '{{.Tag}}'
 milestones:
 - repo:
-    owner: trilioData
+    owner: pallav-trilio
     name: tvm-helm-plugins
   name_template: '{{ .Tag }}'
 scoop:
@@ -49,9 +49,6 @@ archives:
   - tvm-upgrade
   name_template: tvm-upgrade_{{ .Tag }}_{{ .Os }}_{{ .Arch -}}
   format: tar.gz
-  format_overrides:
-  - goos: windows
-    format: zip
   files:
   - LICENSE.md
   allow_different_binary_count: false

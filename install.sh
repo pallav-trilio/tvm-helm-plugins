@@ -8,13 +8,21 @@ echo "Installing tvm-upgrade ${version} ..."
 unameOut="$(uname -s)"
 
 case "${unameOut}" in
-    Linux*)             os=Linux;;
-    Darwin*)            os=Darwin;;
+    Linux*)             os=linux;;
+    Darwin*)            os=darwin;;
     MINGW*|MSYS_NT*)    os=windows;;
-    *)                  os="UNKNOWN:${unameOut}"
+    Windows_NT)         os=windows;;
+    *)                  os="UNKNOWN:${unameOut}";;
 esac
 
-arch=`uname -m`
+archOut=`uname -m`
+
+case "${archOut}" in
+    amd64*)             arch=amd64;;
+    x86_64*)            arch=amd64;;
+    386*)               arch=386;;
+    *)                  arch=386;;
+esac
 
 if echo "$os" | grep -qe '.*UNKNOWN.*'
 then
@@ -22,7 +30,9 @@ then
     exit 1
 fi
 
-url="https://github.com/pallav-trilio/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_linux_amd64.tar.gz?raw=true"
+echo "OS/Arch : ${os}/$(arch)"
+
+url="https://github.com/trilioData/tvm-helm-plugins/blob/main/dist/tvm-upgrade_v0.0.0_${os}_${arch}.tar.gz?raw=true"
 
 filename=`echo ${url} | sed -e "s/^.*\///g"`
 
@@ -37,6 +47,8 @@ filename=`echo ${url} | sed -e "s/^.*\///g"`
       echo "Need curl or wget"
       exit -1
   fi
+
+echo "Downloaded Binary"
 
 # Install bin
 rm -rf bin && mkdir bin && tar xvf $filename -C bin > /dev/null && rm -f $filename
