@@ -13,6 +13,8 @@ archOut=$(uname -m)
 case "${archOut}" in
     amd64*)             arch=amd64;;
     x86_64*)            arch=amd64;;
+    arm64*)             arch=amd64;;
+    arm*)               arch=arm;;
     *)                  arch=386;;
 esac
 echo "OS/Arch : ${os}/${arch}"
