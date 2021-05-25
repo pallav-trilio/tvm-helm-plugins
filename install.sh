@@ -28,6 +28,6 @@ echo "Filename : ${filename} "
       echo "Need curl or wget"
       exit 1
   fi
-echo "Downloaded Binary"
+echo "Downloaded Binary tar"
 # Install bin
 rm -rf bin && mkdir bin && tar xvf "$filename" -C bin > /dev/null && rm -f "$filename"
