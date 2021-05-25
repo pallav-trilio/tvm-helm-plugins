@@ -44,21 +44,13 @@ builds:
   lang: go
   gobinary: go
 archives:
-- id: default
+- id: tvm-upgrade-archive
   builds:
   - tvm-upgrade
-  name_template: '{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}{{ if .Arm }}v{{
-    .Arm }}{{ end }}{{ if .Mips }}_{{ .Mips }}{{ end }}'
-  format: binary
+  name_template: tvm-upgrade_{{ .Tag }}_{{ .Os }}_{{ .Arch -}}
+  format: tar.gz
   files:
-  - licence*
-  - LICENCE*
-  - license*
-  - LICENSE*
-  - readme*
-  - README*
-  - changelog*
-  - CHANGELOG*
+  - LICENSE.md
   allow_different_binary_count: false
 snapshot:
   name_template: '{{ .Tag }}-SNAPSHOT-{{ .ShortCommit }}'

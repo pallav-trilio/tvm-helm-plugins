@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 cd "$HELM_PLUGIN_DIR" || exit
-version="$(grep  "version" plugin.yaml | cut -d '\"' -f 2)"
+version="$(grep  "version" plugin.yaml | cut -d '"' -f 2)"
 echo "Installing tvm-upgrade ${version} ..."
 
 # Find correct archive name
