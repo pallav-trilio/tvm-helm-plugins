@@ -33,5 +33,5 @@ echo "Filename : ${filename} "
 echo "Downloaded Binary tar"
 # Install bin
 rm -rf bin && mkdir bin && tar xvf "$filename" -C bin > /dev/null && rm -f "$filename"
-PATH=$PATH:$HELM_PLUGIN_PATH/bin
+PATH=$PATH:$HELM_PLUGIN_DIR/bin
 tvm-upgrade -h
