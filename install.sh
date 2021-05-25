@@ -25,10 +25,10 @@ url="https://github.com/pallav-trilio/tvm-helm-plugins/blob/main/dist/tvm-upgrad
 filename=$(echo "${url}" | sed -e "s/^.*\///g" | awk -F "?" '{print $1}')
 echo "Filename : ${filename} "
   # Download archive
-  if [[ -n "$(command -v curl)" ]]
+  if [ -x "$(command -v curl)" ]
   then
       curl -sSL -o "$filename" "$url"
-  elif [[ -n "$(command -v wget)" ]]
+  elif [ -x "$(command -v wget)" ]
   then
       wget -q -O "$filename" "$url"
   else
