@@ -35,3 +35,7 @@ echo "Downloaded Binary tar"
 rm -rf bin && mkdir bin && tar xvf "$filename" -C bin > /dev/null && rm -f "$filename"
 PATH=$PATH:$HELM_PLUGIN_DIR/bin
 tvm-upgrade -h
+ 
+if [ "$os" == "windows" ]; then 
+    echo "Press enter to continue ...."
+fi
