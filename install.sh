@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 cd "$HELM_PLUGIN_DIR" || exit
 version="$(grep  "version" plugin.yaml | cut -d ' ' -f 2)"
 echo "Installing tvm-upgrade ${version} ..."
