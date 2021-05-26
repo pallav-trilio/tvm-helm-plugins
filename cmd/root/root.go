@@ -2,6 +2,7 @@ package root
 
 import (
 	"log"
+	"os"
 
 	"github.com/spf13/cobra"
 	pre_upgrade "github.com/trilioData/tvm-helm-plugins/pkg/pre-upgrade"
@@ -57,6 +58,8 @@ func newHelmUpgradeCmd() *cobra.Command {
 }
 
 func runHelmPreUpgradeJobE(cmd *cobra.Command, args []string) error {
+
+	log.Printf("HELM NAMESPACE : %s", os.Getenv("HELM_NAMESPACE"))
 	if pre_upgrade.Validate(helmReleaseName, helmReleaseNamespace) {
 		if err := pre_upgrade.Do(helmReleaseName, helmReleaseNamespace, imageRegistryName); err != nil {
 			return err
